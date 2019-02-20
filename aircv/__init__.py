@@ -82,7 +82,7 @@ def imread(filename):
     Like cv2.imread
     This function will make sure filename exists 
     '''
-    im = cv2.imread(filename)
+    im = cv2.imdecode(np.fromfile(filename,dtype=np.uint8),-1)
     if im is None:
         raise RuntimeError("file: '%s' not exists" % filename)
     return im
